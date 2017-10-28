@@ -1,0 +1,331 @@
+/**********************************************/
+/******************** TOOLS *******************/
+/**********************************************/
+
+/* Variables */
+$border-white: 1px solid #fff;
+
+/* Mixins */ 
+@mixin main{
+	background-color: rgba(31, 59, 71, 0.8);
+	color: #fff;
+	font-family: 'source sans pro', serif;
+}
+
+@mixin title{
+	font-size: 1.5em;
+	line-height: 1.4;
+	letter-spacing: 0.5em;
+	text-align: left;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+@mixin paragraph{
+	text-align: justify;
+	font-size: 1.15em;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+/***********************************************/
+/******************** LAYOUT *******************/
+/***********************************************/
+body{
+	font-family: 'source sans pro', serif;
+}
+
+.wrapper{
+	background: url(../../img/background.jpg) no-repeat fixed;
+	display: flex;
+	flex-direction: column;
+	padding: 3em 2em;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	z-index: 3;
+	color: #fff;
+	#header{
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+			background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, transparent 55%);
+			max-width: 100%;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			.logo{
+				width: 80px;
+				height: 80px;
+				border: solid 1px #ffffff;
+				border-radius: 50%;
+				padding: 25px;
+			}
+			.contenu {
+				border-top:$border-white;
+				border-bottom: $border-white;
+			    max-width: 100%;
+			    .inner{
+				transition: max-height 0.75s ease, padding 0.75s ease, opacity 0.325s ease-in-out;
+				padding: 48px 32px;
+				max-height: 40em;
+				overflow: hidden;
+				h1{
+					margin-bottom: 15px;
+					font-size: 2.25em;
+					letter-spacing: 0.4em;
+					font-weight: 600;
+					text-transform: uppercase;
+				}
+				p{
+				letter-spacing: 0.2em;
+				font-size: 1em;
+				line-height: 2em;
+				font-weight: 300;
+				text-transform: uppercase;
+				}
+				}
+			}
+			nav {
+				display:block;
+				ul {
+				display: flex;
+				margin-bottom: 0;
+				list-style: none;
+				padding-left: 0;
+				border: solid 1px #ffffff;
+				border-radius: 4px;
+				margin: 0 0 32px 0;
+					li:first-child{
+						border-right: $border-white;
+					}
+					li:nth-child(3){
+						border-left: $border-white;
+						border-right: $border-white;
+					}
+					li{
+						display: block;
+						min-width: 120px;
+						height: 44px;
+						line-height: 44px;
+						padding: 0 20px 0 23px;
+						text-transform: uppercase;
+						letter-spacing: 0.2em;
+						font-size: 1em;
+						border-bottom: 0;
+						font-weight: 300;
+						transition: background, 0.3s;
+						cursor: pointer;
+						&:hover{
+							background-color: rgba(250, 250, 250, 0.07);
+						}
+					}
+				}
+			}
+	}
+	#footer{
+		display: block;
+		transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
+		width: 100%;
+		max-width: 100%;
+		margin-top: 32px;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		font-size: 0.8em;
+		opacity: 0.75;
+		font-weight: 300;
+	}
+}
+
+#intro, #work, #about{
+	flex-direction: column;
+	border-radius: 4px;
+	padding: 35px;
+	margin-top: 35px;
+	@include main;
+	h2{
+		@include title;
+		font-size: 1.5em;
+		letter-spacing: 0.5em;
+	}
+	p{
+		margin: 0 0 32px 0;
+		@include paragraph;
+		a{
+			color: #fff;
+			text-decoration: underline #fff dotted;
+		}
+	}
+	.image{
+		text-align: center;
+		img{ 
+		padding-bottom: 15px;
+		}
+	}
+}
+
+
+/************************************************/
+/******************** MODULES *******************/
+/************************************************/
+
+/* LOADING PAGE */
+#header{
+	opacity: 0;
+  	animation: fadeIn .5s ease-in 1 forwards;
+}
+
+.box-lines{
+	border-right: $border-white;
+	height: 60px;
+}
+
+/* SECTION 1 : INTRO - SECTION 2 : WORK - SECTION 3 : ABOUT*/
+
+
+#contact{
+	border-radius: 4px;
+	padding: 35px;
+	margin-top: 35px;
+	@include main;
+	h2{
+		@include title;
+		font-size: 1.5em;
+		letter-spacing: 0.5em;
+	}
+	form{
+		.ligne{  
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		label{
+			font-family: 'source sans pro', serif;
+			font-weight: 300;
+			text-transform: uppercase;
+			margin: 15px 0;
+			font-size: 1.1em;
+			letter-spacing: 0.2em;
+		}
+		.field{
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	.icons{  
+		display: flex;
+		justify-content: flex-start;
+		padding: 0;
+		li {  
+			border: $border-white;
+			list-style-type: none;
+			border-radius: 50%;
+			margin-right: 15px;
+			height: 35px;
+			width: 35px;
+			padding: 8px;
+			a{
+
+				&:hover {  
+				}
+
+				i{
+					color: #fff;
+					font-size: 1.3em;
+				}
+			}
+		}	
+	}
+}
+
+/* INPUT AND TEXTAREA */
+input[type="text"], textarea, input[type="submit"], input[type="reset"]{ 
+appearance: none; 
+-moz-appearance: none;
+-webkit-appearance: none;
+}
+
+input[type="text"], textarea{
+	padding: 12px 16px;
+	background: transparent;
+	border-radius: 4px;
+	border: solid 1px #ffffff;
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	line-height: 1.65;
+}
+
+input[type="text"]{
+	width: 260px !important;
+	height: 50px !important;
+}
+
+/* BUTTONS SUBMIT AND RESET */
+input[type="submit"], input[type="reset"] {
+	border-radius: 4px;
+	font-size: 1em;
+	height: 40px;
+	letter-spacing: 0.2em;
+	padding: 0 18px 0 22px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+	font-family: "Source Sans Pro", sans-serif;
+	margin-top: 30px;
+	margin-bottom: 35px;
+}
+
+input[type="submit"]{
+	background-color: #ffffff;
+	color: #1b1f22;
+	font-weight: 600;
+	border: 0;
+	margin-right: 20px;
+}
+
+input[type="reset"]{
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 300;
+		&:hover{
+			background-color: rgba(250, 250, 250, 0.07);
+		}
+}
+
+.actions {  
+	display: flex;
+	flex-direction: row;
+	padding: 0;
+	li{
+		list-style-type: none;
+	}
+}
+
+/* CLASSE ACTIVE */
+#header.active{
+	display: flex !important;
+}
+
+#header{
+	display: none !important;
+}
+.tab-content{
+	display: none !important;
+}
+
+.tab-content.active{
+	display: block !important;
+}
+
+
